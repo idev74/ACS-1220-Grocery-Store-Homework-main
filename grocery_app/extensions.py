@@ -8,9 +8,9 @@ import os
 app = Flask(__name__)
 app.config.from_object(Config)
 
+
 db = SQLAlchemy(app)
 
-# flask_login.LoginManager
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
@@ -22,3 +22,10 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 bcrypt = Bcrypt(app)
+
+# from grocery_app.main.routes import main
+
+# app.register_blueprint(main)
+
+# with app.app_context():
+#     db.create_all()
